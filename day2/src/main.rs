@@ -1,4 +1,5 @@
 use std::cmp::max;
+use std::env;
 use std::fs::File;
 use std::io::Read;
 
@@ -93,12 +94,17 @@ fn part2(input: &str) -> i32 {
 
 
 fn main() {
-    let mut file = File::open("./../input.txt").unwrap();
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).unwrap();
-
-    println!("Part 1: {}", part1(&contents));
-    println!("Part 2: {}", part2(&contents));
+    if let Ok(current_dir) = env::current_dir() {
+        let path = current_dir.join("input.txt");
+        let mut file = File::open(path).unwrap();
+        let mut contents = String::new();
+        file.read_to_string(&mut contents).unwrap();    
+        
+        println!("Part 1: {}", part1(&contents));
+        println!("Part 2: {}", part2(&contents));
+    } else {
+        println!("Error: could not get current directory");
+    }
 }
 
 
