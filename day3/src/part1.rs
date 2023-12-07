@@ -19,7 +19,7 @@ pub fn check_line(input: &str, number: String, i: usize, j: usize) -> bool {
         return true;
     }
 
-    let mut x = j;
+    let x;
     if j <= number.len() - 1 {
         x = 0;
     } else {

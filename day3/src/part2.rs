@@ -4,7 +4,7 @@ pub fn is_neighbour(number: u32, k: usize, j: usize) -> bool {
         return true;
     }
 
-    let mut start = 0;
+    let start;
     if k <= len - 1 {
         start = 0;
     } else {
